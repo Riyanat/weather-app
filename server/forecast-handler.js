@@ -5,19 +5,18 @@ let filename = path.resolve(__dirname, './../static/cities.json');
 let file = fs.readFileSync(filename, 'utf8');
 let cities = JSON.parse(file);
 
-let map = cities.reduce((map, c) =>  {
-    map[c.id] = {
-        lon: c.coord.lon,
-        lat: c.coord.lat
-    };
-    map[c.name] = {
-        lon: c.coord.lon,
-        lat: c.coord.lat
-    };
-    return map;
-}, {});
+// let map = cities.reduce((map, c) =>  {
+//     map[c.id] = {
+//         lon: c.coord.lon,
+//         lat: c.coord.lat
+//     };
+//     map[c.name] = {
+//         lon: c.coord.lon,
+//         lat: c.coord.lat
+//     };
+//     return map;
+// }, {});
 
-console.log(map);
 
 const forecastHandler = (req, res) => {
     let id = req.query.id;

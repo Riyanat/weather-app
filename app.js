@@ -22,7 +22,7 @@ logger = new (winston.Logger)
 app.get('/api/cities', cityHandler);
 app.get('/forecast', forecastHandler)
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   logger.info('Running weather-svc. listening=%s', PORT)
 });
 

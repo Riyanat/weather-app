@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const YAML = require('yamljs');
 const app = express();
-const PORT = 8080;
+const PORT = 5000;
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument =  YAML.load('./api.yaml');
 

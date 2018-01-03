@@ -1,0 +1,75 @@
+---
+  swagger: "2.0"
+  info: 
+    version: "1.0.0"
+    title: "Weather Svc"
+    description: "A microservice that retrieves today's forecast every 3 hours, for a particular city or location"
+    contact:
+      name: "Riyanat Shittu"
+  host: "weather-svc.io"
+  basePath: "/api"
+  schemes:
+    - "http"
+  consumes:
+    - "application/json"
+  produces:
+    - "application/json"
+  paths:
+    /cities:
+      get:
+        description: "Returns the list of known cities that can be used for the query"
+        produces:
+          - "application/json"
+        responses:
+          "200":
+            description: "A list of all countries."
+            schema:
+              type: "array"
+              items: {"$ref":"#/definitions/City"}
+          "400":
+            description: "A list of all countries."
+            schema:
+              type: "array"
+              items: {"$ref":"#/definitions/ErrorResponse"}
+    /forecast:
+      get:
+        description: "Returns todays weather forecast"
+        produces:
+          - "application/json"
+        parameters:
+          - name: id
+            in: query
+            type: string
+            required: false
+          - name: name
+            in: query
+            type: string
+            default: London
+            required: false
+          - name: country
+            in: query
+            type: string
+            required: false
+        responses:
+          "200":
+            description: "todays weather forecast for a given location or city"
+            schema:
+              type: "array"
+              items: {"$ref":"#/definitions/City"}
+  definitions:
+    City:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+        name:
+          type: "string"
+        country:
+          type: "string"
+    ErrorResponse:
+      type: "object"
+      properties:
+        code:
+          type: "integer"
+        message:
+          type: "string"

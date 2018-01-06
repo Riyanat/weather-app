@@ -6,7 +6,7 @@
     description: "A microservice that retrieves today's forecast every 3 hours, for a particular city or location"
     contact:
       name: "Riyanat Shittu"
-  host: "weather-svc.io"
+  host: "ris-weather-svc.herokuapp.com"
   basePath: "/api"
   schemes:
     - "http"
@@ -15,22 +15,6 @@
   produces:
     - "application/json"
   paths:
-    /cities:
-      get:
-        description: "Returns the list of known cities that can be used for the query"
-        produces:
-          - "application/json"
-        responses:
-          "200":
-            description: "A list of all countries."
-            schema:
-              type: "array"
-              items: {"$ref":"#/definitions/City"}
-          "400":
-            description: "A list of all countries."
-            schema:
-              type: "array"
-              items: {"$ref":"#/definitions/ErrorResponse"}
     /forecast:
       get:
         description: "Returns todays weather forecast"

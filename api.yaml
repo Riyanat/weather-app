@@ -9,7 +9,7 @@
   host: "ris-weather-svc.herokuapp.com"
   basePath: "/api"
   schemes:
-    - "http"
+    - "https"
   consumes:
     - "application/json"
   produces:

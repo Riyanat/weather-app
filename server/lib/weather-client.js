@@ -34,7 +34,7 @@ module.exports = () => {
                                     temperature: d.main.temp,
                                     wind: d.wind,
                                     icon: d.weather[0].icon,
-                                    precipitation: d.rain["3h"] || 0
+                                    precipitation: d.rain || 0
                                 }
                         });
                     });

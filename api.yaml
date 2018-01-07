@@ -6,7 +6,7 @@
     description: "A microservice that retrieves today's forecast every 3 hours, for a particular city or location"
     contact:
       name: "Riyanat Shittu"
-  host: "ris-weather-svc.herokuapp.com7"
+  host: "ris-weather-svc.herokuapp.com"
   basePath: "/api"
   schemes:
     - "http"

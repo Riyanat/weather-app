@@ -39,7 +39,7 @@ const forecastHandler = (req, res) => {
         .then((results) => {
             let data = {};
             data.forecast = results[0];
-            data.sunrise = results[1];
+            data.twilight = results[1];
             res.status(200).send(data);
             return;
         })

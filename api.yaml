@@ -40,24 +40,30 @@
         parameters:
           - name: id
             in: query
+            description: The id of the city (use /cities to discover city ids)
             type: string
             required: false
           - name: name
             in: query
             type: string
+            description: The name of the city
             default: London
             required: false
           - name: country
             in: query
             type: string
+            description: The 2 letter country code of the city
+            default: GB
             required: false
         responses:
           "200":
             description: "todays weather forecast for a given location or city"
             schema:
               type: "array"
-              items: {"$ref":"#/definitions/City"}
+              items: {"$ref":"#/definitions/Forecast"}
   definitions:
+    Forecast:
+      type: "object"
     City:
       type: "object"
       properties:

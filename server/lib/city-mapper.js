@@ -53,6 +53,10 @@ module.exports = function() {
             return coords[id];
         },
 
+        getAvailableCities: () => {
+            return all;
+        },
+
         /**
          * Checks if the city exists.
          * @param name
@@ -61,7 +65,7 @@ module.exports = function() {
          */
         cityExists: (name, country) => {
             let id = ids[name.toLowerCase() + "," + country.toLowerCase()];
-            return (id != null);
+            return (id != undefined);
         },
         /**
          *
@@ -71,7 +75,7 @@ module.exports = function() {
          */
         idExists: (id) => {
             let c = coords[id];
-            return (c != null)
+            return (c != undefined)
         }
     }
 }();

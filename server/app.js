@@ -9,6 +9,7 @@ const swaggerDocument =  YAML.load('./api.yaml');
 const logger = require('./util/logger');
 
 const forecastHandler = require('./web-handlers/forecast-handler');
+const cityHandler = require('./web-handlers/city-handler');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -16,8 +17,15 @@ app.use(cookieParser());
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get('/api/forecast', forecastHandler)
+app.get('/api/cities', cityHandler)
 
-app.listen(process.env.PORT || PORT, () => {
+var server = app.listen(process.env.PORT || PORT, () => {
   logger.info('Running weather-svc. listening=%s', PORT)
 });
+
+module.exports = {
+  tearDown: () => {
+      server.close();
+  }
+};
 

@@ -3,7 +3,7 @@ const twilightClient = require('../lib/twilight-client')();
 const weatherClient = require('../lib/weather-client')();
 const logger = require('../util/logger');
 
-const forecastHandler = async(req, res) => {
+const forecastHandler = (req, res) => {
     let id = req.query.id;
     let name = req.query.name;
     let country = req.query.country;
@@ -12,6 +12,7 @@ const forecastHandler = async(req, res) => {
     if (!id && !(name && country)){
         res.status(400)
             .send({cod: 400, message: "Provide a valid city and country OR a valid city id"});
+        return;
     }
 
     // Retrieve id from name, country.
@@ -21,12 +22,14 @@ const forecastHandler = async(req, res) => {
     else {
         res.status(404)
             .send({cod: 404, message: "Provide a known city and country"});
+        return;
     }
 
     // Validate Id
     if (id && !cityMapper.idExists(id)) {
         res.status(404)
             .send({cod: 404, message: "Provide a known id"});
+        return;
     }
 
     let weather = weatherClient.getWeather(id);

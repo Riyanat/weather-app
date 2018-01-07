@@ -23,8 +23,10 @@ module.exports = () => {
 
                     return res.json().then(response => {
                         logger.info("operation=getWeather. successful");
+
+                        // retrieves only todays forecast (if any - depends on the query time).
                         return response.list
-                            .filter(d => {return (d.dt <= moment().utc().endOf('day'))})
+                            .filter(d => {return (d.dt <= moment().endOf('day').valueOf()/1000)})
                             .map(d => {
                                 return {
                                     date: d.dt_txt,

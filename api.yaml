@@ -6,7 +6,7 @@
     description: "A microservice that retrieves today's forecast every 3 hours, for a particular city or location"
     contact:
       name: "Riyanat Shittu"
-  host: "ris-weather-svc.herokuapp.com"
+  host: "ris-weather-svc.herokuapp.com7"
   basePath: "/api"
   schemes:
     - "http"
@@ -15,9 +15,26 @@
   produces:
     - "application/json"
   paths:
+    /cities:
+      get:
+        description: "Returns the list of some countries that can be used for the query"
+        produces:
+          - "application/json"
+        responses:
+          "200":
+            description: "A list of all countries."
+            schema:
+              type: "array"
+              items: {"$ref":"#/definitions/City"}
+          "400":
+            description: "A list of all countries."
+            schema:
+              type: "array"
+              items: {"$ref":"#/definitions/ErrorResponse"}
     /forecast:
       get:
-        description: "Returns todays weather forecast"
+        description: "Returns today's weather forecast (3 hour intervals)
+                      given a city `name` and its`country` OR a city `id`"
         produces:
           - "application/json"
         parameters:
@@ -46,10 +63,14 @@
       properties:
         id:
           type: "integer"
+          example: ""
         name:
           type: "string"
+          example: "London"
         country:
           type: "string"
+          description: "a valid country code"
+          example: "GB"
     ErrorResponse:
       type: "object"
       properties:

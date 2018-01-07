@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node server/app.js"
+    "start": "node server/app.js",
+    "test": "mocha test --timeout 5000"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
@@ -14,9 +15,13 @@
     "moment": "^2.20.1",
     "morgan": "~1.9.0",
     "node-fetch": "^1.7.3",
+    "request": "^2.83.0",
     "serve-favicon": "~2.4.5",
     "swagger-ui-express": "^2.0.13",
     "winston": "^2.4.0",
     "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1"
   }
 }

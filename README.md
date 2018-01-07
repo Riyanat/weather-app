@@ -10,7 +10,7 @@ http://ris-weather-svc.herokuapp.com/api/docs
 
 #### Example queries ####
 ```
-curl http://ris-weather-svc.herokuapp.com/api/forecast?name=London&country=GB
+curl "http://ris-weather-svc.herokuapp.com/api/forecast?name=London&country=GB"
 ```
 #### Running the tests ####
 ```

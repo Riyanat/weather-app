@@ -3,10 +3,10 @@ A service that retrieves the weather forecast of the day.
 
 
 #### Service URL ####
-http://ris-weather-svc.herokuapp.com
+https://ris-weather-svc.herokuapp.com
 
 #### Api Documentation ####
-http://ris-weather-svc.herokuapp.com/api/docs
+https://ris-weather-svc.herokuapp.com/api/docs
 
 #### Example queries ####
 ```
